@@ -1,21 +1,6 @@
 public class ListingActivity : Activity 
 {
-   public ListingActivity() : base ("Listing Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area."
-){}
-
-   public void DoActivity()
-   {
-        WelcomeMessage();
-        
-
-        
-
-        EndMessage();
-   }
-   public class GetRandom
-
-   {
-        private List<string> _prompts1 = new List<string>()
+     private List<string> _prompts = new List<string>()
         {
             "Who are people that you appreciate?",
             "What are personal strengths of yours?",
@@ -24,21 +9,29 @@ public class ListingActivity : Activity
             "Who are some of your personal heroes?"
 
         };
+    private List<string> userResponses = new List<string>();
+   
         
-        public GetRandom(List<string> prompt)
-        {
-            _prompts1 = prompt;
-        }
-        public void PromptGenerator()
-        {
-            Random random = new Random();
-            int index = random.Next(_prompts1.Count);
-            string randomString = _prompts1[index];
-        }
-        public string GetPrompts1()
-        {
-            return randomString;
-        }
-   }
+   public ListingActivity() : base ("Listing Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area."){}
 
+   public void DoActivity()
+   {
+        WelcomeMessage();
+        Console.WriteLine(_prompts[ran.Next(0,_prompts.Count())]);
+        DisplayAnimation();
+        
+        while (DateTime.Now < StartActivity.AddSeconds(_duration))
+        {
+            Console.Write("@ ");
+            string userResponse = Console.ReadLine();
+            userResponses.Add(userResponse);
+            
+        }
+        
+        Console.WriteLine($"You listed {userResponses.Count()} items. ");
+        
+
+        EndMessage();
+   }
+   
 }

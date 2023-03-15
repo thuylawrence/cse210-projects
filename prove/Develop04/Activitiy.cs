@@ -7,6 +7,8 @@ public class Activity
     protected string _description;
 
     protected int _duration;
+    protected Random ran = new Random();
+    
 
     public Activity (string activityName, string decription)
     {
@@ -22,19 +24,19 @@ public class Activity
         _duration = int.Parse(Console.ReadLine());
         Console.WriteLine("Get ready...");
         DisplayAnimation();
-
+        StartActivity = DateTime.Now;
     }
+    protected DateTime StartActivity;
     protected void EndMessage()
     {
         Console.WriteLine("Well Done!");
+        CountDown();
         Console.WriteLine($"You have completed {_duration} seconds of the {_activityName}");
+        CountDown();
     }
     
     protected void DisplayAnimation()
     {
-        
-       
-
         List<string> animationStrings = new List<string>();
         animationStrings.Add("|");
         animationStrings.Add("/");
@@ -49,11 +51,17 @@ public class Activity
         {
             Console.Write(s);
             Thread.Sleep(1000);
-            Console.Write("\b \b");
+            Console.Write("\b");
         }
-
-
-
     }
-
+    protected void CountDown()
+    {
+        for (int i = 5; i> 0; i--)
+        {
+            Console.Write(i);
+            Thread.Sleep(1000);
+            Console.Write("\b");
+        }
+        
+    }
 }

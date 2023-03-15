@@ -7,32 +7,14 @@ public class BreathingActivity : Activity
         WelcomeMessage();
         //Breath in, breath out loop
         
-        DisplayAnimation();
-        DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(5);
         
-        for (int i = 5; i> 0; i--)
+        while (DateTime.Now < StartActivity.AddSeconds(_duration))
         {
-            Console.Write($"Breathing in... {i} \b \b");
-            Console.Write($"Now breath out... {i} \b \b");
-            Thread.Sleep(1000);
+            Console.WriteLine("Breath in...");
+            CountDown();
+            Console.WriteLine("Now breath out...");
+            CountDown();
         }
-        
-        // int i = 0;
-
-        // while (DateTime.Now < endTime)
-        // {
-        //     string s = animationStrings [i];
-        //     Console.Write (s);
-        //     Thread.Sleep(1000);
-        //     i ++;
-        //     if (i>= animationStrings.count)
-        //     {
-        //         i=0;
-        //     }
-
-        // }
-
         EndMessage();
    }
 
