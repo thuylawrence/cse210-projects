@@ -1,0 +1,3 @@
+0
+1|Exercise|Work out everday for 30 minutes|50|False
+2|go to church|go to church every Sunday|50
