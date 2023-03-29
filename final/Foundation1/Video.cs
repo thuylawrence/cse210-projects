@@ -26,12 +26,14 @@ class Video
             Console.WriteLine(_title, _author, _length);
         }
     }
+    
 
     public void DisplayVideoComment()
     {
         foreach (Comment comment in _comments)
         {
             comment.DisplayComment();
+            
         }
         Console.ReadLine();
     }
