@@ -1,41 +1,26 @@
 using System;
 
-class Order 
+class Order
 {
-    private List<string> _product = new List<string>()
+    List<Product> _products = new List<Product>();
+    Product product1 = new Product("ProductName: Shoes", 1, 1, 15.6);
+    Product product2 = new Product("ProductName: Shirt", 2, 1, 8.5);
+    Product product3 = new Product("ProductName: Dress", 3, 1, 17.8);
+    public void DisplayAllProductName()
     {
-
-    };
-    private string _customer;
-    private List<float> _prices = new List<float>()
+        _products.ForEach(product => product.DisplayProduct)
+    }
+    private Customer _customer;
+    public float GetTotalCost()
     {
+        return GetTotalCost;
 
-    };
 
-    public Order()
-    {
 
     }
 
-    public Order(List<string> product, string customer, List<float> prices)
-    {
-        _product = product;
-        _customer = customer;
-        _prices = prices;
-    }
-    public bool DisplayShippingCost()
-    {
-        foreach (Price price in _prices)
-        {
-            if (_address == "USA")
-            {
-                _shippingCost = "$5";
-                float sum = 
-            }
-            else
-            {
-                _shippingCost = "$35";
-            }
-        }
-    }
+
+
+
+
 }
