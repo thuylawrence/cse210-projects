@@ -6,72 +6,24 @@ class Video
     private int _length;
 
     List<Comment> _comments = new List<Comment>();
-    List<Video> _videos = new List<Video>();
-
-    public Video()
-    {
-
-    }
     public Video(string title, string author, int length)
     {
         _title = title;
         _author = author;
         _length = length;
     }
-    public void DisplayVideoList()
+    public void DisplayAllVideoComments()
     {
-        
-        foreach (Video video in _videos)
-        {
-            Console.WriteLine(_title, _author, _length);
-        }
-    }
-    
 
-    public void DisplayVideoComment()
-    {
-        foreach (Comment comment in _comments)
-        {
-            comment.DisplayComment();
-            
-        }
-        Console.ReadLine();
+        _comments.ForEach(comment => comment.DisplayComment());
     }
-    public string GetTitle()
+    public void DisplayVideoInfo()
     {
-        return _title;
+        Console.WriteLine($"{_title}, {_author}, {_length}, number of comment: {_comments.Count()}");
+        DisplayAllVideoComments();
     }
-    public void SetTitle(string titleName)
+    public void AddComment(Comment comment)
     {
-        _title = titleName;
+        _comments.Add(comment);
     }
-    public string GetAuthor()
-    {
-        return _author;
-    }
-    public void SetAuthor(string authorName)
-    {
-        _author = authorName;
-    }
-    public int GetLength()
-    {
-        return _length;
-    }
-    public void SetLength(int lengthInSeconds)
-    {
-        _length = lengthInSeconds;
-    }
-
-
-    public List<string> _videoList = new List<string>()
-    {
-        "Title: Papa Kehte Hain Bada Naam Karega|Author: Elijah Lawrence|length: 237 seconds",
-        "Title: Vulfpeck /// Dean Town (Upright Bass Cover)|Author: Andrew Altman|length: 77 seconds",
-        "Title: Caravan - Double Bass Cover (Whiplash)|Author: Basso Chan|length: 143 seconds"
-    };
-    public List<string> GetMovieList()
-    {
-        return _videoList;
-    }
-    
 }
