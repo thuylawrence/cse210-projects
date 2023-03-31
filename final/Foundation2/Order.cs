@@ -2,23 +2,52 @@ using System;
 
 class Order
 {
-    List<Product> _products = new List<Product>();
-    Product product1 = new Product("ProductName: Shoes", 1, 1, 15.6);
-    Product product2 = new Product("ProductName: Shirt", 2, 1, 8.5);
-    Product product3 = new Product("ProductName: Dress", 3, 1, 17.8);
+    public double _runningTotal;
+    private List<Product> _products = new List<Product>();
+    private Customer _customer;
+
+    
+
+    public Order(Customer customer)
+    {
+        
+       
+        _customer = customer;
+    }
+
     public void DisplayAllProductName()
     {
-        _products.ForEach(product => product.DisplayProduct)
+        _products.ForEach(product => product.DisplayProduct());
     }
-    private Customer _customer;
-    public float GetTotalCost()
+    public double GetTotalOrderCost()
     {
-        return GetTotalCost;
-
-
-
+        double shipping = _customer.GetAddress().IsInUSA() ? 5 : 35;
+        _products.ForEach(product => _runningTotal+=product.GetTotalProductPrice());
+        return _runningTotal + shipping;
     }
-
+    public void DisplayFinalOrder()
+    {   
+        DisplayPackingLabel();
+        DisplayShippingLabel();
+        Console.WriteLine(GetTotalOrderCost());
+        Console.WriteLine();
+    }
+    public void AddProduct(Product product)
+    {
+        _products.Add(product);
+    }
+    public void DisplayPackingLabel()
+    {
+        _products.ForEach(product => Console.WriteLine($"{product.GetQuantity()}. {product.GetName()} {product.GetId()} "));
+        
+    }
+    public void DisplayShippingLabel()
+    {
+        Console.WriteLine($"{_customer.GetCustomerName()} - {_customer.GetAddress().DisplayGetAddress()}");
+        
+    }
+        
+        
 
 
 

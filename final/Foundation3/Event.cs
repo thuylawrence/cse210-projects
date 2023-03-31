@@ -1,36 +1,53 @@
 using System;
 
-public class Event 
+public abstract class Event
 {
-    protected string _eventTitle, _eventDescription;
-    private string _date = DateTime.Now.ToShortDateString();
+    private string _eventTitle, _eventDescription, _date, _time, _type, _email, _weather, _message;
+    
     private Address _address;
 
-    public Event()
+    public string EventTitle { get => _eventTitle; set => _eventTitle = value; }
+    public string EventDescription { get => _eventDescription; set => _eventDescription = value; }
+    public string Date { get => _date; set => _date = value; }
+    public string Time { get => _time; set => _time = value; }
+    public string Type { get => _type; set => _type = value; }
+    public string Email { get => _type; set => _email = value; }
+    public string Weather { get => _type; set => _weather = value; }
+    public string Message { get => _type; set => _message = value; }
+
+    public Address Address { get => _address; set => _address = value; }
+
+    public Event(string eventTitle, string eventDescription, string date, string time, string address)
     {
+        EventTitle = eventTitle;
+        EventDescription = eventDescription;
+        Date = date;
+    
+
+        string[] addressParts = address.Split(", ");
+        Address = new Address(addressParts[0], addressParts[1], addressParts[2], addressParts[3]);
+    }
+    public void DisplayStandardDetail()
+    {
+        Console.WriteLine(EventTitle);
+        Console.WriteLine(EventDescription);
+        Console.WriteLine(Date);
+        Console.WriteLine(Time);
+        Console.WriteLine(Address);
+
+    }
+    public void DisplayShortDescription()
+    {
+        Console.WriteLine(Type);
+        Console.WriteLine(EventTitle);
+        Console.WriteLine(Date);
+    }
+    public abstract void DisplayFullDetails();
+    public void DisplayMarketingMessage()
+    {
+        Console.WriteLine(Message);
     }
 
-    public Event(string eventTitle, string eventDescription, string date, Address address)
-    {
-        _eventTitle = eventTitle;
-        _eventDescription = eventDescription;
-        _date = date;
-        _address = address;
-    }
-
-   
-
-    protected void EventIntroduction()
-    {
-        Console.WriteLine($"Listing {_eventTitle}. ");
-        Console.WriteLine($"Event's description: {_eventDescription}");
-        Console.WriteLine($"Location: {_address}");
-        StartEvent = DateTime.Now;
-    }
-    protected DateTime StartEvent;
-    protected void DisplayMessages()
-    {
-
-    }
+    
 
 }

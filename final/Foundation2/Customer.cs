@@ -6,10 +6,11 @@ class Customer
 
     private Address _address;
 
-    public Customer(string customerName, Address address)
+    public Customer(string customerName, string address)
     {
         _customerName = customerName;
-        _address = address;
+        string[] addressParts = address.Split(", ");
+        _address = new Address(addressParts[0],addressParts[1],addressParts[2],addressParts[3]);
     }
 
     public void DisplayGetCountry()
@@ -23,6 +24,11 @@ class Customer
     public void SetCustomerName(string customerName)
     {
         _customerName = customerName;
+    }
+
+    public Address GetAddress()
+    {
+        return _address;
     }
     
 }

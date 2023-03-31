@@ -10,10 +10,10 @@ public class Activity
     protected Random ran = new Random();
     
 
-    public Activity (string activityName, string decription)
+    public Activity (string activityName, string description)
     {
         _activityName = activityName;
-        _description = decription;
+        _description = description;
        
     }
     protected void WelcomeMessage()

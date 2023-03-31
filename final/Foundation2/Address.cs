@@ -11,22 +11,22 @@ class Address
         _state = state;
         _country = country;
     }
+    
+    public bool IsInUSA()
+    {
+        return _country.ToUpper().Contains("USA") ? true : false;
+        
+    }
+
+    
     public string GetCountry()
     {
-        
-        if (_country == "USA")
-        {
-            Console.WriteLine("The shipping cost is $5. ");
-        }
-        else
-        {
-            Console.WriteLine("The shipping cost is $35. ");
-        }
         return _country;
     }
-    private string GetAddress()
+    public string DisplayGetAddress()
     {
         return $"{_streetAddress}|{_city}|{_state}|{_country}";
     }
+
     
 }

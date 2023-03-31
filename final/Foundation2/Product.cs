@@ -15,16 +15,27 @@ class Product
         _productQuantity = productQuantity;
         _price = price;
     }
-
-    
-
-    public float productPrice(float _price, int _productQuantity)
+    public double GetTotalProductPrice()
     {
         return _price * _productQuantity;
     }
-    public void DisplayAllProductName()
+    public void DisplayProduct()
     {
-        
+        Console.WriteLine($"{_productQuantity}: {_productName} - ${_price}");
     }
-    
+
+    public int GetQuantity()
+    {
+        return _productQuantity;
+    }
+
+    public string GetName()
+    {
+        return _productName;
+    }
+
+    public int GetId()
+    {
+        return _productId;
+    }
 }
