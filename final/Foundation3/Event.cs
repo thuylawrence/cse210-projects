@@ -22,6 +22,7 @@ public abstract class Event
         EventTitle = eventTitle;
         EventDescription = eventDescription;
         Date = date;
+        Time = time;
     
 
         string[] addressParts = address.Split(", ");
@@ -33,19 +34,22 @@ public abstract class Event
         Console.WriteLine(EventDescription);
         Console.WriteLine(Date);
         Console.WriteLine(Time);
-        Console.WriteLine(Address);
-
+        Console.WriteLine(Address.DisplayAddress());
+        Console.WriteLine();
     }
     public void DisplayShortDescription()
     {
         Console.WriteLine(Type);
         Console.WriteLine(EventTitle);
         Console.WriteLine(Date);
+        Console.WriteLine();
     }
     public abstract void DisplayFullDetails();
+    
+    
     public void DisplayMarketingMessage()
     {
-        Console.WriteLine(Message);
+       Console.WriteLine($"We are here to help our plan your {Type}. All you have to do is contact us, sit back and relax. We will plan a memorable event for you. ");
     }
 
     

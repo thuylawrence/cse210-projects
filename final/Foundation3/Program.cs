@@ -15,11 +15,11 @@ class Program
 
         foreach (Event currentEvent in events)
         {
-            // currentEvent.DisplayStandardDetail();
+            currentEvent.DisplayStandardDetail();
             currentEvent.DisplayFullDetails();
-            // currentEvent.DisplayShortDescription();
-            Console.WriteLine();
+            currentEvent.DisplayShortDescription();
             currentEvent.DisplayMarketingMessage();
+            Console.WriteLine();
         }
     }
 

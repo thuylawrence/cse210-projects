@@ -15,15 +15,10 @@ public class ReceptionEvent : Event
         Console.WriteLine(Date);
         Console.WriteLine(Time);
         Console.WriteLine(Address.DisplayAddress());
+        Console.WriteLine();
     }
         
-     public void DisplayMessage()
-    {
-        DisplayMarketingMessage();
-    }
-     public new void DisplayMarketingMessage()
-    {
-       Console.WriteLine($"We are here to help our plan your {Type}. All you have to do is contact us, sit back and relax. We will plan a memorable event for you. ");   
-    }   
+    
+     
 
 }
