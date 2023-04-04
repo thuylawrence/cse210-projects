@@ -1,16 +1,16 @@
 public abstract class Activity
 {
-    protected string _activityName, _date;
-    protected double _length;
-    protected double _speed;
-    protected double _pace;
-    protected double _distance;
-    protected Activity(string activityName, string date, double length)
+    protected string _activityName;
+    protected int _minutes;
+    protected double _speed, _distance;
+    protected string _date ;
+    protected Activity(int minutes)
     {
-        _activityName = activityName;
-        _date = date;
-        _length = length;
+        _date = DateTime.Now.ToShortDateString();
+        _minutes = minutes;
     }
+        
+        
     public string GetActivityName()
     {
         return _activityName;
@@ -21,17 +21,15 @@ public abstract class Activity
     }
     public double GetLength()
     {
-        return _length;
+        return _minutes;
     }
     public abstract double GetDistance();
     public abstract double GetSpeed();
     
+    
     public abstract double GetPace();
-    public abstract string GetSummary();
-    public void DisplaySummary()
-    {
-        Console.WriteLine($"{_date} {_activityName} - Distance {GetDistance()} miles, Speed {GetSpeed()} mph, Pace {GetPace()} min per mile.");
-    }
+    
+    public abstract void DisplaySummary();
    
     
    

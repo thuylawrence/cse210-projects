@@ -1,41 +1,42 @@
 class Swimming : Activity
 {
     private int _laps;
-    public Swimming(string activityName, string date, double length, int laps) : base(activityName, date, length)
+    public Swimming(int minutes, int laps) : base(minutes)
     {
+        _activityName = "Swimming";
+        
         _laps = laps;
     }
 
-    public int laps { get; private set; }
-
+    
     public override double GetDistance()
     {
-        return _laps * 50/1000 * 0.62;
+        _distance = (_laps * 50)/(1000 * 0.62);
+        return (_laps * 50)/(1000 * 0.62);
     }
-    public int GetLaps()
-    {
-        return laps;
-    }
-
+   
     public override double GetPace()
     {
-        return 60/_pace;
+        return 60/GetSpeed();
     }
     public override double GetSpeed()
     {
-        return 60/_speed;
+        return (GetDistance()/_minutes)*60;
     }
 
-    public override string GetSummary()
+    public override void DisplaySummary()
     {
-        return $"{DisplaySummary}";
+        
+        Console.WriteLine($"{GetDate()} {_activityName} ({_minutes} min) - Distance {Math.Round(GetDistance(),2)} miles, Speed {Math.Round(GetSpeed(),2)} mph, Pace: {GetPace()} min per mile.");
+    
+   
     }
 
-    public override string ToString()
-    {
-        return base.ToString();
-    }
 }
+
+
+
+    
 
     
 

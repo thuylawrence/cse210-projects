@@ -1,17 +1,18 @@
 class Cycling : Activity
 {
-    private double _speed;
-    public Cycling(string activityName, string date, double length, double speed) : base(activityName, date, length)
+   
+    public Cycling(int minutes, double speed) : base(minutes)
     {
+        _activityName = "Cycling";
         _speed = speed;
     }
     public override double GetDistance()
     {
-        return _distance;
+        return _speed *(_minutes/60);
     }
     public override double GetPace()
     {
-        return _pace;
+        return 60/_speed;
     }
 
     public override double GetSpeed()
@@ -19,15 +20,14 @@ class Cycling : Activity
         return _speed;
     }
 
-    public override string GetSummary()
+    public override void DisplaySummary()
     {
-      return $"{DisplaySummary}";
+        Console.WriteLine($"{GetDate()} {_activityName} ({_minutes} min) - Distance {GetDistance()} miles, Speed {GetSpeed()} mph, Pace: {GetPace()} min per mile.");
     }
+    
 
-    public override string ToString()
-    {
-        return base.ToString();
-    }
+    
+   
 }
 
     

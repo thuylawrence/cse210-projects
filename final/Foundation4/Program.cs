@@ -6,11 +6,11 @@ class Program
     {
         Console.Clear();
         List<Activity> activities = new List<Activity>();
-        Activity running = new Running("Running", "01 Jun 2023", 30, 3.5);
+        Activity running = new Running( 30, 3.5);
         activities.Add(running);
-        Activity cycling = new Cycling("Cycling", "01 Jun 2023", 60, 10);
+        Activity cycling = new Cycling( 60, 10);
         activities.Add(cycling);
-        Activity swimming = new Swimming("Swimming", "01 Jun 2023", 60, 15);
+        Activity swimming = new Swimming( 60, 15);
         activities.Add(swimming);
 
         foreach (Activity currentActivity in activities)
